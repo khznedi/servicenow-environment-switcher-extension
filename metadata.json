@@ -1,0 +1,6 @@
+{
+  "name": "ServiceNow Environment Switcher",
+  "description": "A productivity tool for ServiceNow engineers to switch between Dev, UAT, and Prod environments instantly and manage user impersonations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

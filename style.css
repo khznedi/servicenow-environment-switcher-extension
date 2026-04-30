@@ -1,0 +1,569 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --bg-canvas: #f1f5f9;
+  --bg-surface: #ffffff;
+  --border-color: #e2e8f0;
+  --text-main: #1e293b;
+  --text-muted: #94a3b8;
+  
+  --dev-color: #059669;
+  --uat-color: #d97706;
+  --prod-color: #dc2626;
+
+  --shadow-custom: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  width: 320px;
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-canvas);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header */
+header {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+h1 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+h2 {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+/* Cards & Sections */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: var(--shadow-custom);
+}
+
+/* Form Elements */
+.input-group {
+  margin-bottom: 12px;
+}
+
+label {
+  display: block;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 13px;
+  box-sizing: border-box;
+  font-family: inherit;
+  transition: all 0.2s;
+  background-color: #f8fafc;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+/* Buttons */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.btn-outline:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+/* Env Button Overrides */
+.btn-dev {
+  color: var(--dev-color);
+  border-color: var(--dev-color);
+}
+.btn-dev:hover {
+  background-color: #ecfdf5;
+}
+
+.btn-uat {
+  color: var(--uat-color);
+  border-color: var(--uat-color);
+}
+.btn-uat:hover {
+  background-color: #fffbeb;
+}
+
+.btn-prod {
+  color: var(--prod-color);
+  border-color: var(--prod-color);
+}
+.btn-prod:hover {
+  background-color: #fef2f2;
+}
+
+/* Environment-specific main button and expand button colors */
+.env-block.dev .env-main-btn,
+.env-block.dev .env-expand-btn {
+  color: var(--dev-color);
+  border-color: var(--dev-color);
+}
+
+.env-block.uat .env-main-btn,
+.env-block.uat .env-expand-btn {
+  color: var(--uat-color);
+  border-color: var(--uat-color);
+}
+
+.env-block.prod .env-main-btn,
+.env-block.prod .env-expand-btn {
+  color: var(--prod-color);
+  border-color: var(--prod-color);
+}
+
+/* Grid Layouts */
+.env-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Collapsible Environment Blocks */
+.env-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.env-header {
+  display: flex;
+  gap: 4px;
+  align-items: stretch;
+}
+
+.env-main-btn {
+  flex: 1;
+  border: 1px solid;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  background-color: white;
+}
+
+.env-expand-btn {
+  width: 40px;
+  min-width: 40px;
+  border: 1px solid;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-size: 12px;
+  transition: transform 0.2s;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.env-expand-btn.expanded {
+  transform: rotate(180deg);
+}
+
+.env-shortcuts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 8px;
+  border-left: 2px solid;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.env-shortcuts .btn {
+  font-size: 11px;
+  padding: 8px 10px;
+  opacity: 0.9;
+}
+
+.env-shortcuts .btn:hover {
+  opacity: 1;
+}
+
+/* Environment-specific border colors */
+.env-block.dev .env-shortcuts {
+  border-left-color: var(--dev-color);
+}
+
+.env-block.uat .env-shortcuts {
+  border-left-color: var(--uat-color);
+}
+
+.env-block.prod .env-shortcuts {
+  border-left-color: var(--prod-color);
+}
+
+/* Deprecated: old grid styles */
+.env-column {
+  display: none;
+}
+
+.env-label {
+  display: none;
+}
+
+/* Impersonation Section */
+.imp-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--shadow-custom);
+}
+
+.imp-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+/* Quick Search Layout */
+.quick-search-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.quick-search-input {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 12px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.quick-search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+.quick-search-env {
+  width: 90px;
+  flex-shrink: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #ffffff;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.quick-search-env:hover {
+  border-color: var(--primary);
+}
+
+.quick-search-env:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+.quick-search-btn {
+  width: 80px;
+  flex-shrink: 0;
+  padding: 10px;
+}
+
+/* History Tags */
+.history-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.history-tag {
+  background: #f1f5f9;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.history-tag:hover {
+  background: #e2e8f0;
+  color: var(--text-main);
+}
+
+/* Injected Banner Styling */
+#sn-switcher-banner {
+  all: initial;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  z-index: 1000000;
+  pointer-events: none;
+}
+
+.banner-dev { background-color: #dcfce7; border-bottom: 2px solid var(--dev-color); color: #065f46; }
+.banner-uat { background-color: #fef3c7; border-bottom: 2px solid var(--uat-color); color: #92400e; }
+.banner-prod { background-color: #fee2e2; border-bottom: 2px solid var(--prod-color); color: #991b1b; }
+.status-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 10px;
+}
+
+/* Shortcut Management Styles */
+h3 {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.shortcuts-management {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.add-shortcut-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.add-shortcut-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 12px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.shortcuts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.shortcuts-header {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-color);
+}
+
+.shortcut-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 10px;
+  gap: 8px;
+}
+
+.shortcut-item.default {
+  background: #ffffff;
+}
+
+.shortcut-item.custom {
+  background: #f0f9ff;
+  border-color: var(--primary);
+}
+
+.shortcut-label {
+  font-weight: 600;
+  color: var(--text-main);
+  flex: 1;
+  word-break: break-word;
+}
+
+.shortcut-path {
+  font-size: 9px;
+  color: var(--text-muted);
+  word-break: break-all;
+  display: block;
+  margin-top: 1px;
+}
+
+.shortcut-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.shortcut-toggle {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.shortcut-delete-btn {
+  padding: 4px 8px;
+  background: #fee2e2;
+  color: var(--prod-color);
+  border: 1px solid var(--prod-color);
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.shortcut-delete-btn:hover {
+  background: var(--prod-color);
+  color: white;
+}
+
+/* Extension Footer */
+.extension-footer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.footer-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 0 0 12px 0;
+}
+
+.footer-content {
+  font-size: 10px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.footer-content p {
+  margin: 4px 0;
+}
+
+.footer-content a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+  color: var(--primary-hover);
+}

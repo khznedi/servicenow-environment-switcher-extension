@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="container">
+
+<header>
+<h1>SN Switcher</h1>
+</header>
+
+<section>
+<h2>QUICK SEARCH</h2>
+
+<div class="quick-search-row">
+<input id="quick-search" class="quick-search-input" placeholder="INC / RITM / REQ / CHG / USER">
+<select id="search-env-select" class="quick-search-env">
+<option value="PROD" selected>PROD</option>
+<option value="UAT">UAT</option>
+<option value="DEV">DEV</option>
+</select>
+<button id="btn-search" class="quick-search-btn btn btn-primary">Go</button>
+</div>
+</section>
+
+<section>
+<h2>NAVIGATION MATRIX</h2>
+
+<div class="env-grid">
+
+<div class="env-block dev">
+<div class="env-header">
+<button id="env-button-dev" class="env-main-btn btn-dev" data-env="DEV">DEV</button>
+<button id="env-expand-dev" class="env-expand-btn" data-env="DEV" title="Expand shortcuts">▼</button>
+</div>
+<div class="env-shortcuts" id="shortcuts-dev" style="display: none;">
+</div>
+</div>
+
+<div class="env-block uat">
+<div class="env-header">
+<button id="env-button-uat" class="env-main-btn btn-uat" data-env="UAT">UAT</button>
+<button id="env-expand-uat" class="env-expand-btn" data-env="UAT" title="Expand shortcuts">▼</button>
+</div>
+<div class="env-shortcuts" id="shortcuts-uat" style="display: none;">
+</div>
+</div>
+
+<div class="env-block prod">
+<div class="env-header">
+<button id="env-button-prod" class="env-main-btn btn-prod" data-env="PROD">PROD</button>
+<button id="env-expand-prod" class="env-expand-btn" data-env="PROD" title="Expand shortcuts">▼</button>
+</div>
+<div class="env-shortcuts" id="shortcuts-prod" style="display: none;">
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section>
+<h2>SETTINGS</h2>
+
+<h3>Environment URLs</h3>
+<input id="url-dev" placeholder="dev-instance.service-now.com">
+<input id="url-uat" placeholder="uat-instance.service-now.com">
+<input id="url-prod" placeholder="prod-instance.service-now.com">
+<input id="url-ec-path" value="/esc">
+
+<button id="btn-save" class="btn btn-primary">Save Settings</button>
+
+<h3>Manage Shortcuts</h3>
+<div class="shortcuts-management">
+<div class="add-shortcut-form">
+<input id="new-shortcut-label" placeholder="Label (e.g., Agile Board)" maxlength="50">
+<input id="new-shortcut-path" placeholder="Path (e.g., now/scrum/board)" maxlength="100">
+<button id="btn-add-shortcut" class="btn btn-primary">Add Shortcut</button>
+</div>
+
+<div id="shortcuts-list" class="shortcuts-list"></div>
+</div>
+</section>
+
+</div>
+
+<footer class="extension-footer">
+<div class="footer-divider"></div>
+<div class="footer-content">
+<p>ServiceNow Admin Helper Extension</p>
+<p>Developed by: <strong>Khalifah Alzunaydi</strong></p>
+<p>Email: <a href="mailto:khznedi8@gmail.com">khznedi8@gmail.com</a></p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/khalifah-alzunaydi" target="_blank">https://www.linkedin.com/in/khalifah-alzunaydi</a></p>
+</div>
+</footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

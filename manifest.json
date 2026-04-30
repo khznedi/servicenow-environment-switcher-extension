@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "ServiceNow Environment Switcher",
+  "version": "2.2",
+  "description": "Switch environments quickly with keyboard shortcut + impersonation tools + navigation matrix.",
+  "author": "Khalifah Alzunaydi",
+  "homepage_url": "https://www.linkedin.com/in/khalifah-alzunaydi",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.service-now.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "commands": {
+    "open-extension-popup": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "Open ServiceNow Switcher Popup"
+    }
+  }
+}
